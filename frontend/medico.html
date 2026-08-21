@@ -7,101 +7,238 @@
   <title>Painel Médico</title>
 
   <style>
-   
-   .btn-tv {
-    background-color: #28a745;
-color: #f5f5f5;
-border: none;
-padding:  8px 14px;
-border-radius: 5px;
-cursor: pointer;
-font-size: 14px;
-margin-top: 8px;
-   }
-
-   .btn-tv:hover {background: #28a745;}
-   .btn-abrir-tv {
-    background: #17a2b8;
-  color: #ffffff;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  }
-
-  .btn-abrir-tv:hover {background:  #17a2b8;}
-  .consutorio-input {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    margin-bottom: 16px;
-    background: #ffffff;
-    padding: 18px 14px;
-    border-radius: 6px;
-    border:  1px solid #ffffff;
-  }
-
-.consutorio-input label {font-weight: bold;}
-.consutorio-input input {
-  width: 60px;
-text-align: center;
-font-size: 18px;
-font-weight: bold;
-padding: 4px 8px;
-border: 1px solid #ffffff;
-border-radius: 4px;
-}
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #e5e5e5;
-      color: #111;
+      background: #04101f;
+      color: #fff;
       min-height: 100vh;
-      padding: 30px 15px;
+      padding: 100px 20px 90px;
     }
 
-    
+    /* FAIXAS */
+    .top-bar,
+    .bottom-bar {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: #020913;
+      z-index: 1000;
+    }
+
+    .top-bar {
+      top: 0;
+      display: flex;
+      align-items: center;
+      padding-left: 28px;
+    }
+
+    .top-bar h1 {
+      font-size: 28px;
+      color: #fff;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    .bottom-bar {
+      bottom: 0;
+    }
+
+    /* CONTAINER */
+    .container {
+      width: 100%;
+      max-width: 850px;
+      margin: auto;
+      background: #0b1f3a;
+      border: 3px solid #14355d;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    h2,
+    h3 {
+      color: #fff;
+      margin-bottom: 18px;
+    }
+
+    /* CONSULTÓRIO */
+    .consutorio-input {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #10294b;
+      border: 2px solid #1d4b82;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .consutorio-input label {
+      font-weight: bold;
+    }
+
+    .consutorio-input input {
+      width: 70px;
+      text-align: center;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .consutorio-input span {
+      color: #c4d7eb;
+      font-size: 13px;
+    }
+
+    /* CAMPOS */
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 2px solid #1d4b82;
+      border-radius: 8px;
+      background: #10294b;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #b7c9dd;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #2e6db8;
+      background: #13345d;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    /* CARDS */
+    .card {
+      background: #10294b;
+      border: 2px solid #1d4b82;
+      border-left: 6px solid #295d97;
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      margin-bottom: 8px;
+      color: #d7e6f7;
+    }
+
+    .card b {
+      color: #fff;
+    }
+
+    /* BOTÕES */
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #14355d;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    button:hover {
+      background: #1b4d82;
+    }
+
+    .btn-tv,
+    .btn-abrir-tv {
+      width: auto;
+      padding: 8px 14px;
+      background: #1b4d82;
+      font-size: 14px;
+    }
+
+    .btn-tv:hover,
+    .btn-abrir-tv:hover {
+      background: #295d97;
+    }
+
+    /* RISCO */
+    .vermelho {
+      color: #ff6b6b;
+      font-weight: bold;
+    }
+
+    .amarelo {
+      color: #ffd54f;
+      font-weight: bold;
+    }
+
+    .verde {
+      color: #7ee787;
+      font-weight: bold;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #1d4b82;
+      margin: 30px 0;
+    }
   </style>
 </head>
 
 <body>
 
-  <div class="container"> 
-    
-     <div class="container">
+  <div class="top-bar">
+    <h1>HOSPITAL SENTINELA</h1>
+  </div>
 
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 200px;">
+  <div class="container">
 
-      <h2 style="margin: 0;">🏥 Triagem Hospitalar</h2>
+    <div class="header">
 
-      <button
-        class="btn-abrir-tv"
-        onclick="window.open('tv.html', '_blank')"
-      >
-        📺 abrir tela da tv
+      <h2>🏥 Triagem Hospitalar</h2>
+
+      <button class="btn-abrir-tv" onclick="window.open('tv.html', '_blank')">
+        📺 Abrir tela da TV
       </button>
 
     </div>
 
     <div class="consutorio-input">
-      <label>Meu consutorio</label>
+      <label>Meu consultório</label>
       <input type="text" id="consutorio-num" value="01">
-<span style="color: #667; font-size: 13px;" >
-  Este numero sera exibido na TV ao chamar o paciente.
-</span>
+      <span>Este número será exibido na TV ao chamar o paciente.</span>
     </div>
-
-    
-
-
-
 
     <h2>🩺 Painel Médico</h2>
 
@@ -125,8 +262,9 @@ border-radius: 4px;
 
   </div>
 
-  <script>
+  <div class="bottom-bar"></div>
 
+  <script>
     let triagensCarregadas = [];
 
     function carregar() {
@@ -146,33 +284,17 @@ border-radius: 4px;
 
                 <h3>${t.nome}</h3>
 
-                <p>
-                  <b>Sintoma:</b>
-                  ${t.sintoma || "Não informado"}
-                </p>
+                <p><b>Sintoma:</b> ${t.sintoma || "Não informado"}</p>
 
-                <p>
-                  <b>Temperatura:</b>
-                  ${t.temperatura || "Não informada"}°C
-                </p>
+                <p><b>Temperatura:</b> ${t.temperatura || "Não informada"}°C</p>
 
-                <p>
-                  <span class="${t.risco}">
-                    ${t.risco}
-                  </span>
-                </p>
+                <p><span class="${t.risco}">${t.risco}</span></p>
 
-                <p>
-                  <b>Alergia:</b>
-                  ${t.alergia || "Nenhuma"}
-                </p>
+                <p><b>Alergia:</b> ${t.alergia || "Nenhuma"}</p>
 
-                <p>
-                  <b>Observação:</b>
-                  ${t.observacao || "Nenhuma"}
-                </p>
+                <p><b>Observação:</b> ${t.observacao || "Nenhuma"}</p>
 
-                <button onclick="selecionar(${index})">
+                <button class="btn-tv" onclick="selecionar(${index})">
                   Atender
                 </button>
 
@@ -187,17 +309,10 @@ border-radius: 4px;
       const t = triagensCarregadas[index];
 
       document.getElementById("paciente").value = t.nome;
-
-      document.getElementById("obs").value =
-        t.observacao || "";
+      document.getElementById("obs").value = t.observacao || "";
 
       if (t.alergia && t.alergia !== "Nenhuma") {
-
-        alert(
-          "⚠️ Paciente possui alergia: " +
-          t.alergia
-        );
-
+        alert("⚠️ Paciente possui alergia: " + t.alergia);
       }
     }
 
@@ -207,19 +322,13 @@ border-radius: 4px;
         .then(r => r.json())
         .then(data => {
 
-          const select =
-            document.getElementById("medicacao");
+          const select = document.getElementById("medicacao");
 
-          select.innerHTML = `
-            <option value="">
-              Selecione a medicação
-            </option>
-          `;
+          select.innerHTML = `<option value="">Selecione a medicação</option>`;
 
           data.forEach(med => {
 
-            const option =
-              document.createElement("option");
+            const option = document.createElement("option");
 
             option.value = med;
             option.textContent = med;
@@ -232,31 +341,18 @@ border-radius: 4px;
 
     function salvar() {
 
-      const paciente =
-        document.getElementById("paciente").value;
-
-      const diagnostico =
-        document.getElementById("diagnostico").value;
-
-      const medicacao =
-        document.getElementById("medicacao").value;
-
-      const obs =
-        document.getElementById("obs").value;
+      const paciente = document.getElementById("paciente").value;
+      const diagnostico = document.getElementById("diagnostico").value;
+      const medicacao = document.getElementById("medicacao").value;
+      const obs = document.getElementById("obs").value;
 
       if (!paciente) {
-
-        alert(
-          "Selecione um paciente clicando em Atender."
-        );
-
+        alert("Selecione um paciente clicando em Atender.");
         return;
       }
 
       if (!medicacao) {
-
         alert("Selecione uma medicação.");
-
         return;
       }
 
@@ -284,9 +380,7 @@ border-radius: 4px;
         alert("Consulta salva");
 
         document.getElementById("diagnostico").value = "";
-
         document.getElementById("medicacao").value = "";
-
         document.getElementById("obs").value = "";
 
       });
