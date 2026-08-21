@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
+
 <head>
-  <link rel="stylesheet" href="css/style.css">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atendimento</title>
+
   <style>
     * {
       margin: 0;
@@ -16,107 +19,169 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #e5e5e5;
+      background: #04101f;
+      position: relative;
+      overflow: hidden;
     }
 
+    /* FAIXAS */
+    .top-bar,
+    .bottom-bar {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: #020913;
+      z-index: 1000;
+    }
+
+    .top-bar {
+      top: 0;
+      display: flex;
+      align-items: center;
+      padding-left: 28px;
+    }
+
+    .top-bar h1 {
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .bottom-bar {
+      bottom: 0;
+    }
+
+    /* CONTAINER */
     .container {
       width: 100%;
-      max-width: 420px;
+      max-width: 430px;
       padding: 35px;
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      background: #0b1f3a;
+      border: 3px solid #14355d;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
     }
 
     h2 {
       text-align: center;
-      margin-bottom: 25px;
-      color: #333333;
-      font-size: 28px;
+      margin-bottom: 28px;
+      color: #ffffff;
+      font-size: 30px;
+      letter-spacing: 1px;
     }
 
+    /* CAMPOS */
     input,
     select {
       width: 100%;
-      padding: 13px;
+      padding: 14px;
       margin-bottom: 15px;
-      border: 1px solid #bdbdbd;
-      border-radius: 7px;
-      background-color: #f8f8f8;
-      color: #333333;
+      border: 2px solid #1d4b82;
+      border-radius: 8px;
+      background: #10294b;
+      color: #ffffff;
       font-size: 15px;
       outline: none;
     }
 
+    input::placeholder {
+      color: #b7c9dd;
+    }
+
     input:focus,
     select:focus {
-      border-color: #555555;
-      background-color: #ffffff;
+      border-color: #2e6db8;
+      background: #13345d;
     }
 
     input[type="file"] {
       cursor: pointer;
-      background-color: #eeeeee;
+      color: #b7c9dd;
     }
 
+    input[type="file"]::-webkit-file-upload-button {
+      background: #14355d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    select option {
+      background: #10294b;
+      color: #ffffff;
+    }
+
+    /* BOTÃO */
     button {
       width: 100%;
-      padding: 14px;
+      padding: 15px;
       border: none;
-      border-radius: 7px;
-      background-color: #333333;
+      border-radius: 8px;
+      background: #14355d;
       color: #ffffff;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
+      transition: .3s;
     }
 
     button:hover {
-      background-color: #555555;
+      background: #1b4d82;
     }
 
     button:active {
-      background-color: #222222;
+      background: #10294b;
     }
   </style>
 </head>
 
 <body>
 
-<div class="container">
-  <h2>Atendimento</h2>
+  <div class="top-bar">
+    <h1>HOSPITAL SENTINELA</h1>
+  </div>
 
-  <input id="nome" placeholder="Nome">
-  <input id="cpf" placeholder="CPF">
+  <div class="container">
+    <h2>Atendimento</h2>
 
-  <select id="tipo">
-    <option>Convenio</option>
-    <option>Particular</option>
-  </select>
+    <input id="nome" placeholder="Nome">
+    <input id="cpf" placeholder="CPF">
 
-  <input type="file" id="foto">
+    <select id="tipo">
+      <option>Convênio</option>
+      <option>Particular</option>
+    </select>
 
-  <button onclick="cadastrar()">Cadastrar</button>
-</div>
+    <input type="file" id="foto">
 
-<script>
-function cadastrar() {
-  fetch("http://localhost:3000/atendimento", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      nome: nome.value,
-      cpf: cpf.value,
-      tipo: tipo.value
-    })
-  });
+    <button onclick="cadastrar()">Cadastrar</button>
+  </div>
 
-  alert("Paciente enviado para triagem");
-}
-</script>
+  <div class="bottom-bar"></div>
+
+  <script>
+    function cadastrar() {
+      fetch("http://localhost:3000/atendimento", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          nome: nome.value,
+          cpf: cpf.value,
+          tipo: tipo.value
+        })
+      });
+
+      alert("Paciente enviado para triagem");
+    }
+  </script>
 
 </body>
+
 </html>
