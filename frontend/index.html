@@ -1,45 +1,166 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
+
 <head>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Sistema Hospitalar</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #04101f;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* FAIXAS */
+    .top-bar,
+    .bottom-bar {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      background: #020913;
+      z-index: 1000;
+    }
+
+    .top-bar {
+      top: 0;
+      display: flex;
+      align-items: center;
+      padding-left: 28px;
+    }
+
+    .top-bar h1 {
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .bottom-bar {
+      bottom: 0;
+    }
+
+    /* CONTAINER */
+    .container {
+      width: 100%;
+      max-width: 430px;
+      padding: 35px;
+      background: #0b1f3a;
+      border: 3px solid #14355d;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 28px;
+      color: #ffffff;
+      font-size: 30px;
+      letter-spacing: 1px;
+    }
+
+    /* CAMPOS */
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 16px;
+      border: 2px solid #1d4b82;
+      border-radius: 8px;
+      background: #10294b;
+      color: #ffffff;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: #b7c9dd;
+    }
+
+    input:focus {
+      border-color: #2e6db8;
+      background: #13345d;
+    }
+
+    /* BOTÃO */
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #14355d;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    button:hover {
+      background: #1b4d82;
+    }
+
+    button:active {
+      background: #10294b;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
-  <h2>🏥 Sistema Hospitalar 🦤</h2>
+  <div class="top-bar">
+    <h1>HOSPITAL SENTINELA</h1>
+  </div>
 
-  <input id="usuario" placeholder="Usuário">
-  <input id="senha" type="password" placeholder="Senha">
+  <div class="container">
+    <h2>🏥 Sistema Hospitalar</h2>
 
-  <button onclick="login()">Entrar</button>
-</div>
+    <input id="usuario" placeholder="Usuário">
+    <input id="senha" type="password" placeholder="Senha">
 
-<script>
-function login() {
-  fetch("/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      usuario: usuario.value,
-      senha: senha.value
-    })
-  })
-  .then(r => r.json())
-  .then(data => {
-    if (data.tipo === "triagem")
-      location.href = "triagem.html";
+    <button onclick="login()">Entrar</button>
+  </div>
 
-    if (data.tipo === "medico")
-      location.href = "medico.html";
+  <div class="bottom-bar"></div>
 
-    if (data.tipo === "atendimento")
-      location.href = "atendimento.html";
-  });
-}
-</script>
+  <script>
+    function login() {
+      fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          usuario: usuario.value,
+          senha: senha.value
+        })
+      })
+      .then(r => r.json())
+      .then(data => {
+        if (data.tipo === "triagem")
+          location.href = "triagem.html";
+
+        if (data.tipo === "medico")
+          location.href = "medico.html";
+
+        if (data.tipo === "atendimento")
+          location.href = "atendimento.html";
+      });
+    }
+  </script>
 
 </body>
+
 </html>
