@@ -105,6 +105,8 @@ app.get("/triagens", (req, res) => {
 });
 
 // IMPLEMENTADO: rota com lista fixa de medicações
+// A lógica da TV foi implementada nas páginas de triagem, médico e na tela da TV,
+// com o backend responsável por receber e retornar as chamadas em tempo real.
 app.get("/lista-medicacoes", (req, res) => {
   res.json([
     "Dipirona",

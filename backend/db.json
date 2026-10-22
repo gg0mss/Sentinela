@@ -14,6 +14,12 @@
       "usuario": "atendimento",
       "senha": "123",
       "tipo": "atendimento"
+    },
+    {
+      "id": 1792598141028,
+      "usuario": "ff",
+      "senha": "123",
+      "tipo": "atendimento"
     }
   ],
   "pacientes": [
@@ -88,6 +94,62 @@
       "tipo": "Particular",
       "status": "triagem",
       "createdAt": "2026-05-15T11:16:21.579Z"
+    },
+    {
+      "id": 1785931383386,
+      "nome": "teste20",
+      "cpf": "00000000000000",
+      "tipo": "Particular",
+      "status": "triagem",
+      "createdAt": "2026-08-05T12:03:03.386Z"
+    },
+    {
+      "id": 1785932227544,
+      "nome": "yan",
+      "cpf": "13135444486484",
+      "tipo": "Convenio",
+      "status": "triagem",
+      "createdAt": "2026-08-05T12:17:07.545Z"
+    },
+    {
+      "id": 1785932410535,
+      "nome": "debora",
+      "cpf": "316464444",
+      "tipo": "Convenio",
+      "status": "triagem",
+      "createdAt": "2026-08-05T12:20:10.535Z"
+    },
+    {
+      "id": 1785932898427,
+      "nome": "teste",
+      "cpf": "teste",
+      "tipo": "Convenio",
+      "status": "triagem",
+      "createdAt": "2026-08-05T12:28:18.427Z"
+    },
+    {
+      "id": 1785932936238,
+      "nome": "teste2028",
+      "cpf": "544545454545454",
+      "tipo": "Convenio",
+      "status": "triagem",
+      "createdAt": "2026-08-05T12:28:56.238Z"
+    },
+    {
+      "id": 1785938377866,
+      "nome": "testetete",
+      "cpf": "365353636338",
+      "tipo": "Convenio",
+      "status": "triagem",
+      "createdAt": "2026-08-05T13:59:37.866Z"
+    },
+    {
+      "id": 1785938528417,
+      "nome": "yan",
+      "cpf": "46464641146464646",
+      "tipo": "Convenio",
+      "status": "triagem",
+      "createdAt": "2026-08-05T14:02:08.417Z"
     }
   ],
   "triagens": [
@@ -247,15 +309,48 @@
       "createdAt": "2026-06-02T13:06:29.261Z"
     },
     {
-      "id": 1786620755201,
-      "nome": "",
-      "sintoma": "",
-      "temperatura": 0,
+      "id": 1785931423000,
+      "nome": "jose",
+      "sintoma": "dor_leve",
+      "temperatura": 39,
+      "alergia": "teste",
+      "observacao": "",
+      "risco": "vermelho",
+      "status": "aguardando_medico",
+      "createdAt": "2026-08-05T12:03:43.000Z"
+    },
+    {
+      "id": 1785938591417,
+      "nome": "yan",
+      "sintoma": "tosse",
+      "temperatura": 40,
       "alergia": "",
+      "observacao": "maconha ",
+      "risco": "vermelho",
+      "status": "aguardando_medico",
+      "createdAt": "2026-08-05T14:03:11.417Z"
+    },
+    {
+      "id": 1792676918330,
+      "nome": "ff",
+      "sintoma": "resfriado",
+      "temperatura": 23,
+      "alergia": "gato",
       "observacao": "",
       "risco": "verde",
       "status": "aguardando_medico",
-      "createdAt": "2026-08-13T11:32:35.201Z"
+      "createdAt": "2026-10-22T13:48:38.330Z"
+    },
+    {
+      "id": 1792676922081,
+      "nome": "ff",
+      "sintoma": "resfriado",
+      "temperatura": 23,
+      "alergia": "gato",
+      "observacao": "",
+      "risco": "verde",
+      "status": "aguardando_medico",
+      "createdAt": "2026-10-22T13:48:42.081Z"
     }
   ],
   "consultas": [
@@ -394,6 +489,50 @@
       "medicacao": "Omeprazol",
       "obs": "rththr",
       "createdAt": "2026-06-09T14:43:30.683Z"
+    }
+  ],
+  "tv_chamada": {
+    "id": "1786452864874",
+    "localTipo": "CONSULTÓRIO",
+    "localNumero": "01",
+    "paciente": "test",
+    "hora": "09:54"
+  },
+  "tv_historico": [
+    {
+      "id": "1786452864874",
+      "localTipo": "CONSULTÓRIO",
+      "localNumero": "01",
+      "paciente": "test",
+      "hora": "09:54"
+    },
+    {
+      "id": "1786449828531",
+      "localTipo": "CONSULTÓRIO",
+      "localNumero": "01",
+      "paciente": "yan",
+      "hora": "09:03"
+    },
+    {
+      "id": "1786360380212",
+      "localTipo": "CONSULTÓRIO",
+      "localNumero": "01",
+      "paciente": "teste",
+      "hora": "08:13"
+    },
+    {
+      "id": "1786100378594",
+      "localTipo": "CONSULTÓRIO",
+      "localNumero": "01",
+      "paciente": "test",
+      "hora": "07:59"
+    },
+    {
+      "id": "1785938628927",
+      "localTipo": "CONSULTÓRIO",
+      "localNumero": "01",
+      "paciente": "yan",
+      "hora": "11:03"
     }
   ]
 }

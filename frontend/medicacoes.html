@@ -1,172 +1,64 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medicações Prescritas</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      background: #04101f;
-      padding: 100px 20px 90px;
-      color: #fff;
-    }
-
-    /* FAIXAS */
-    .top-bar,
-    .bottom-bar {
-      position: fixed;
-      left: 0;
-      width: 100%;
-      height: 70px;
-      background: #020913;
-      z-index: 1000;
-    }
-
-    .top-bar {
-      top: 0;
-      display: flex;
-      align-items: center;
-      padding-left: 28px;
-    }
-
-    .top-bar h1 {
-      color: #ffffff;
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    .bottom-bar {
-      bottom: 0;
-    }
-
-    /* CONTAINER */
-    .container {
-      width: 100%;
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 35px;
-      background: #0b1f3a;
-      border: 3px solid #14355d;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #ffffff;
-      font-size: 28px;
-      letter-spacing: 1px;
-    }
-
-    #listaMedicacoes {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .card {
-      padding: 20px;
-      background: #10294b;
-      border: 2px solid #1d4b82;
-      border-left: 6px solid #295d97;
-      border-radius: 10px;
-    }
-
-    .card h3 {
-      margin-bottom: 15px;
-      color: #ffffff;
-      font-size: 21px;
-    }
-
-    .card p {
-      margin-bottom: 10px;
-      color: #d7e6f7;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .card b {
-      color: #ffffff;
-    }
-
-    #listaMedicacoes>p {
-      padding: 20px;
-      text-align: center;
-      color: #d7e6f7;
-      background: #10294b;
-      border: 2px solid #1d4b82;
-      border-radius: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <div class="top-bar">
-    <h1>HOSPITAL SENTINELA</h1>
-  </div>
+<div class="container">
 
-  <div class="container">
+  <h2>💊 Medicações Prescritas</h2>
 
-    <h2>💊 Medicações Prescritas</h2>
+  <!-- IMPLEMENTADO: local onde a lista de medicações será exibida -->
+  <div id="listaMedicacoes"></div>
 
-    <div id="listaMedicacoes"></div>
+</div>
 
-  </div>
+<script>
 
-  <div class="bottom-bar"></div>
+// IMPLEMENTADO: busca as consultas salvas e mostra as medicações
+function carregarMedicacoesPrescritas() {
+  fetch("/medicacoes")
+    .then(r => r.json())
+    .then(data => {
+      const div = document.getElementById("listaMedicacoes");
 
-  <script>
-    function carregarMedicacoesPrescritas() {
-      fetch("/medicacoes")
-        .then(r => r.json())
-        .then(data => {
+      div.innerHTML = "";
 
-          const div = document.getElementById("listaMedicacoes");
+      if (data.length === 0) {
+        div.innerHTML = "<p>Nenhuma medicação prescrita.</p>";
+        return;
+      }
 
-          div.innerHTML = "";
+      data.forEach(c => {
+        div.innerHTML += `
+          <div class="card">
+            <h3>${c.paciente}</h3>
 
-          if (data.length === 0) {
-            div.innerHTML = "<p>Nenhuma medicação prescrita.</p>";
-            return;
-          }
+            <p>
+              <b>Medicação:</b>
+              ${c.medicacao}
+            </p>
 
-          data.forEach(c => {
-            div.innerHTML += `
-              <div class="card">
-                <h3>${c.paciente}</h3>
+            <p>
+              <b>Diagnóstico:</b>
+              ${c.diagnostico}
+            </p>
 
-                <p><b>Medicação:</b> ${c.medicacao}</p>
+            <p>
+              <b>Observações:</b>
+              ${c.obs || "Nenhuma"}
+            </p>
+          </div>
+        `;
+      });
+    });
+}
 
-                <p><b>Diagnóstico:</b> ${c.diagnostico}</p>
+carregarMedicacoesPrescritas();
 
-                <p><b>Observações:</b> ${c.obs || "Nenhuma"}</p>
-              </div>
-            `;
-          });
-
-        });
-    }
-
-    carregarMedicacoesPrescritas();
-  </script>
+</script>
 
 </body>
-
 </html>
