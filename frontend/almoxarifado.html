@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almoxerifado</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-brand">
+            <div class="logo-icon">
+                <div>
+                    <h1>Hospital Pro - almoxerifado</h1>
+                    <span>Gestao de entrada e controle de estoque</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-user">
+            <span class="user-pill" id="nomeUsuario">Almoxerifado</span>
+            <a href="index.html" class="nav-btn">sair</a>
+        </div>
+    </header>
+
+    <div class="alerta-estoque" id="alertaEstoque" style="display: none;">
+        ⚠️ <strong>Alerta</strong>
+        <span id="alertaTexto"></span>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-bar">
+
+        <div class="stat-code">
+            <div class="stat-icon purple">📦</div>
+            <div class="stat-value" id="statItens">-</div>
+            <div class="stat-label">Tipos Cadastrados</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon green">🟢</div>
+            <div class="stat-value" id="statOk">-</div>
+            <div class="stat-label">Estoque normal</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon yellow">🟡</div>
+            <div class="stat-value" id="statBaixo">-</div>
+            <div class="stat-label">Estoque baixo (MENOR QUE 10)</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon red">🔴</div>
+            <div class="stat-value" id="statZerado">-</div>
+            <div class="stat-label">Estoque / esgotados</div>
+        </div>
+
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="main-grid">
+
+<!-- COLUNA ESQUERDA: FORMULARIO ENTRADA -->
+<div>
+<div class="card">
+    <div class="card-header">
+        <h2>entrada de medicamentos</h2>
+    </div>
+<div class="card-body">
+
+
+    <!-- tabs: Novo ou Repor -->
+
+    div class="tabs">
+        <button class="tab-btn active" id="tabNovo" onclick="setTab('novo')">Novo Medicamento</button>
+        <button class="tab-btn" id="tabRepor" onclick="setTab('repor')">Repor Existente</button>
+
+</div>
+
+<!--PAINEL :CADASTRAR NOVO-->
+<div id=" painelNovo">
+<div class="form-group">
+    <label for="emNome">Nome do Medicamento</label>
+    <input type="text" id="emNome" class="form-control" 
+    placeholder="Ex: Paraetamol 750mg"
+    autocomplete="off"> 
+</div>
+
+<div class="form-group">
+    <label for="emQtd">Quantidade
+        <small>(unidade a adicionar)</small></label>
+        <input type="number" id="emQtd"  class="form-control" 
+        value="10" min="1">
+</div>
+
+<div class="form-group">
+<label for="emUnidade">Tipos de unidades</label>
+<select id="emUnidade" class="form-control">
+    <option value="comprimidos">Comprimidos</option>
+    <option value="cápsulas">Cápsulas</option>
+    <option value="frascos">Fracos</option>
+    <option value="ampolas">Ampolas</option>
+    <option value="saches">Sachês</option>
+    <option value="unidades">Unidades</option>
+</select>
+</div>
+
+<div class="form-group">
+    <label for="emCategoria">Categorias
+        Farmalogica    </label>
+<select name="emCategoria" id="form-control">
+    <option value="Analgésico/Antipirético">
+        Analgésico/
+        Antipirético</option>
+        <option value="Antibiótico">Antibiótico</option>
+        <option value="Anti-inflamatorio">Anti-inflamatorio</option>
+        <option value="Antialergico">Antialergico</option>
+        <option value="Protetor Gástrico">Protetor Gástrico</option>
+        <option value="Antiespasmódico">Antiespasmódico</option>
+        <option value="Antiemético">Antiemético</option>
+        <option value="Solução">Solução</option>
+        <option value="Vitamina/Suplemento">Vitamina/Suplemento</option>
+        <option value="Geral">Geral</option>
+     </select>
+</div>
+<button class="btn-full-purple" onclick="darEntrada()">
+    Registrar entrada no estoque
+</button>
+</div>
+
+
+
+
+
+</body>
+</html>

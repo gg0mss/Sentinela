@@ -1,72 +1,783 @@
-body{
-  font-family: Arial;
-  background:#f4f6f9;
-  margin:0;
+
+/* ===== CONFIGURAÇÃO GERAL ===== */
+
+* {
+    box-sizing: border-box;
 }
 
-.container{
-  width:90%;
-  max-width:900px;
-  margin:20px auto;
-  background:white;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+body {
+    font-family: Arial, sans-serif;
+    background: #081321;
+    color: #ffffff;
+    margin: 0;
 }
+
+/* ===== CABEÇALHO ===== */
+
+.navbar {
+    background: #0b1d33;
+    padding: 20px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 3px solid #2563eb;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    flex-wrap: wrap;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    background: #172b45;
+    padding: 14px;
+    border: 1px solid #29415e;
+    border-radius: 12px;
+    font-size: 28px;
+}
+
+.navbar h1 {
+    color: #ffffff;
+    font-size: 24px;
+    margin: 0 0 5px;
+}
+
+.navbar span {
+    color: #cbd5e1;
+    font-size: 13px;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-pill {
+    background: #172b45;
+    color: #ffffff !important;
+    padding: 10px 14px;
+    border: 1px solid #29415e;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn-nav {
+    display: inline-block;
+    background: #2563eb;
+    color: white !important;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-nav:hover {
+    background: #1d4ed8;
+}
+
+/* ===== CONTAINER ===== */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 25px auto;
+    background: #ffffff;
+    color: #111827;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #dbe3ed;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== CAMPOS ===== */
 
 input,
 select,
 textarea,
-button{
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:8px;
-  border:1px solid #ccc;
-  font-size:16px;
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
 }
 
-textarea{
-  min-height:100px;
-  resize:none;
+input,
+select,
+textarea {
+    background: #ffffff;
+    color: #111827;
 }
 
-button{
-  background:#3498db;
-  color:white;
-  border:none;
-  cursor:pointer;
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
-button:hover{
-  background:#2980b9;
+textarea {
+    min-height: 100px;
+    resize: vertical;
 }
 
-.card{
-  border:1px solid #ddd;
-  padding:15px;
-  margin:15px 0;
-  border-radius:10px;
-  background:white;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+/* ===== BOTÕES ===== */
+
+button {
+    background: #102a4c;
+    color: #ffffff;
+    border: 1px solid #102a4c;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.verde{
-  background:#2ecc71;
-  color:white;
-  padding:5px 10px;
-  border-radius:6px;
+button:hover {
+    background: #2563eb;
+    border-color: #2563eb;
 }
 
-.amarelo{
-  background:#f1c40f;
-  padding:5px 10px;
-  border-radius:6px;
+/* ===== CARDS ===== */
+
+.card {
+    border: 1px solid #dbe3ed;
+    padding: 18px;
+    margin: 15px 0;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #111827;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+    transition: 0.3s;
 }
 
-.vermelho{
-  background:#e74c3c;
-  color:white;
-  padding:5px 10px;
-  border-radius:6px;
+.card:hover {
+    border-color: #2563eb;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== CLASSIFICAÇÃO DE RISCO ===== */
+
+.verde {
+    display: inline-block;
+    background: #16a34a;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.amarelo {
+    display: inline-block;
+    background: #facc15;
+    color: #111827;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.vermelho {
+    display: inline-block;
+    background: #dc2626;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+/* ===== ALERTA DE ESTOQUE ===== */
+
+.alerta-estoque {
+    width: 90%;
+    max-width: 1100px;
+    box-sizing: border-box;
+    margin: 20px auto;
+    padding: 18px;
+    background: #fff7ed;
+    color: #9a3412;
+    border: 1px solid #fed7aa;
+    border-left: 5px solid #ea580c;
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* ===== INDICADORES ===== */
+
+.stats-bar {
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.stat-card,
+.stats-cart {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    color: #111827;
+    padding: 22px;
+    border: 1px solid #dbe3ed;
+    border-top: 4px solid #102a4c;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+    min-width: 0;
+}
+
+.stat-card:hover,
+.stats-cart:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ===== ÍCONES ===== */
+
+.stat-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 24px;
+}
+
+.stat-icon.purple {
+    background: #e8eef8;
+    color: #102a4c;
+}
+
+.stat-icon.green {
+    background: #dcfce7;
+    color: #166534;
+}
+
+/* ===== NÚMEROS E TEXTOS ===== */
+
+.stat-value {
+    color: #0b1d33;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 650px) {
+    .navbar {
+        padding: 18px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-brand {
+        max-width: 100%;
+    }
+
+    .navbar h1 {
+        font-size: 21px;
+    }
+
+    .navbar span {
+        font-size: 12px;
+    }
+
+    .nav-user {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .container {
+        width: 95%;
+        margin: 18px auto;
+        padding: 15px;
+    }
+
+    .stats-bar {
+        width: 95%;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .stat-card,
+    .stats-cart {
+        padding: 16px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    .alerta-estoque {
+        width: 95%;
+        padding: 14px;
+    }
+}
+
+/* =====================================
+   ESTILO EXCLUSIVO - TV HOSPITALAR
+   IDENTIDADE VISUAL ORIGINAL
+===================================== */
+
+.tv-container {
+    width: 94%;
+    height: 92vh;
+    margin: 4vh auto;
+    display: grid;
+    grid-template-columns: 35% 65%;
+    gap: 18px;
+}
+
+.tv-container .left-panel,
+.tv-container .right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* ===== PAINÉIS ===== */
+
+.tv-container .box {
+    background: #102a4c;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== TÍTULOS ===== */
+
+.tv-container .box-title {
+    background: #0b1d33;
+    color: #ffffff;
+    padding: 22px;
+    text-align: center;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-bottom: 2px solid #ffffff;
+}
+
+/* ===== LOCAL DE ATENDIMENTO ===== */
+
+.tv-container .local-box {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    background: #102a4c;
+}
+
+.tv-container .local-number {
+    color: #ffffff;
+    font-size: clamp(90px, 12vw, 160px);
+    font-weight: bold;
+    padding: 30px 10px;
+}
+
+/* ===== HISTÓRICO ===== */
+
+.tv-container .history-box {
+    flex: 1;
+}
+
+.tv-container #history-list {
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.tv-container #history-list li {
+    background: #0b1d33;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-left: 4px solid #ffffff;
+    border-radius: 8px;
+    padding: 17px 12px;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tv-container #history-list:empty::after {
+    content: "Nenhuma chamada registrada";
+    display: block;
+    text-align: center;
+    color: #ffffff;
+    padding: 25px 5px;
+    font-size: 15px;
+}
+
+/* ===== PACIENTE ===== */
+
+.tv-container .patient-box {
+    flex: 3;
+    justify-content: center;
+    text-align: center;
+    background: #102a4c;
+}
+
+.tv-container .patient-name {
+    color: #ffffff;
+    font-size: clamp(35px, 5vw, 75px);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 40px 25px;
+    overflow-wrap: anywhere;
+}
+
+/* ===== ANIMAÇÃO ===== */
+
+.tv-container .patient-box.flash {
+    animation: tv-chamada 1s ease;
+}
+
+@keyframes tv-chamada {
+    0% {
+        background: #2563eb;
+    }
+
+    100% {
+        background: #102a4c;
+    }
+}
+
+/* ===== LOGO ===== */
+
+.tv-container .logo-box {
+    min-height: 110px;
+    justify-content: center;
+    align-items: center;
+    background: #0b1d33;
+    border-top: 2px solid #ffffff;
+}
+
+.tv-container .logo-text {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 700px) {
+    .tv-container {
+        height: auto;
+        min-height: 95vh;
+        grid-template-columns: 1fr;
+        margin: 15px auto;
+    }
+
+    .tv-container .local-box {
+        min-height: 200px;
+    }
+
+    .tv-container .history-box {
+        min-height: 250px;
+    }
+
+    .tv-container .patient-box {
+        min-height: 300px;
+    }
+
+    .tv-container .logo-box {
+        min-height: 100px;
+    }
+
+    .tv-container .box-title {
+        font-size: 18px;
+    }
+
+    .tv-container .logo-text {
+        font-size: 22px;
+    }
+}
+
+
+/* ==========================================
+   TRIAGEM HOSPITALAR
+   HOSPITAL SAINT VALENTINE & PESQUISA
+   TEMA AZUL COM DETALHES BRANCOS
+========================================== */
+
+/* ===== FUNDO GERAL ===== */
+
+body {
+    background: #0b1d33;
+    color: #ffffff;
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+
+.container {
+    width: 92%;
+    max-width: 1150px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #102a4c;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== TÍTULOS ===== */
+
+.container h2,
+.container h3 {
+    color: #ffffff;
+}
+
+/* ===== BOTÃO DA TV ===== */
+
+.btn-abrir-tv {
+    width: auto;
+    background: #ffffff;
+    color: #102a4c;
+    border: 2px solid #ffffff;
+    font-weight: bold;
+    padding: 12px 18px;
+}
+
+.btn-abrir-tv:hover {
+    background: #dce8f5;
+    color: #102a4c;
+}
+
+/* ===== PAINEL DE FILA ===== */
+
+.pacientes-fila {
+    background: #0b1d33;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 25px 0;
+}
+
+.pacientes-fila h3 {
+    color: #ffffff;
+}
+
+.pacientes-fila h3 span {
+    display: block;
+    color: #dce6f2;
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 7px;
+}
+
+/* ===== LISTA DE PACIENTES ===== */
+
+#fila-pacientes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.fila-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 16px;
+    background: #16385f;
+    border: 1px solid #ffffff;
+    border-left: 5px solid #ffffff;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.fila-item:hover {
+    background: #1b4775;
+}
+
+.fila-item strong {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.fila-item small {
+    color: #dce6f2;
+}
+
+/* ===== BOTÃO CHAMAR NA TV ===== */
+
+.btn-tv {
+    width: auto;
+    min-width: 160px;
+    background: #ffffff;
+    color: #102a4c;
+    border: 2px solid #ffffff;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+.btn-tv:hover {
+    background: #dce8f5;
+    color: #102a4c;
+}
+
+/* ===== BOTÃO ATUALIZAR ===== */
+
+.pacientes-fila button:not(.btn-tv) {
+    width: auto;
+    background: #ffffff !important;
+    color: #102a4c !important;
+    border: 2px solid #ffffff !important;
+    font-weight: bold;
+}
+
+.pacientes-fila button:not(.btn-tv):hover {
+    background: #dce8f5 !important;
+}
+
+/* ===== DIVISÓRIA ===== */
+
+.container hr {
+    border: none;
+    border-top: 2px solid #ffffff;
+    opacity: 0.5;
+    margin: 28px 0;
+}
+
+/* ===== CAMPOS DO FORMULÁRIO ===== */
+
+.container input,
+.container select,
+.container textarea {
+    width: 100%;
+    background: #16385f;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 13px;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.container input::placeholder,
+.container textarea::placeholder {
+    color: #dce6f2;
+}
+
+.container select option {
+    background: #102a4c;
+    color: #ffffff;
+}
+
+.container input:focus,
+.container select:focus,
+.container textarea:focus {
+    outline: none;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+
+.container textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* ===== BOTÃO SALVAR ===== */
+
+.container > button[onclick="salvar()"] {
+    width: 100%;
+    background: #ffffff;
+    color: #102a4c;
+    border: 2px solid #ffffff;
+    padding: 15px;
+    margin-top: 18px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.container > button[onclick="salvar()"]:hover {
+    background: #dce8f5;
+}
+
+/* ===== RESULTADO DA TRIAGEM ===== */
+
+#resultado {
+    margin-top: 18px;
+    font-weight: bold;
+}
+
+#resultado.verde {
+    background: #16a34a;
+    color: #ffffff;
+    padding: 12px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+}
+
+#resultado.amarelo {
+    background: #eab308;
+    color: #172b45;
+    padding: 12px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+}
+
+#resultado.vermelho {
+    background: #dc2626;
+    color: #ffffff;
+    padding: 12px;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 95%;
+        padding: 18px;
+    }
+
+    .container > div:first-child {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 12px;
+    }
+
+    .btn-abrir-tv {
+        width: 100%;
+    }
+
+    .fila-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-tv {
+        width: 100%;
+    }
+
+    .pacientes-fila {
+        padding: 14px;
+    }
 }
