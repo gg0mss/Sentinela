@@ -1,3 +1,4 @@
+
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
@@ -104,9 +105,7 @@ app.get("/triagens", (req, res) => {
   res.json(db.triagens);
 });
 
-// IMPLEMENTADO: rota com lista fixa de medicações
-// A lógica da TV foi implementada nas páginas de triagem, médico e na tela da TV,
-// com o backend responsável por receber e retornar as chamadas em tempo real.
+// LISTA DE MEDICAÇÕES
 app.get("/lista-medicacoes", (req, res) => {
   res.json([
     "Dipirona",
@@ -148,4 +147,8 @@ app.get("/medicacoes", (req, res) => {
 });
 
 // START
-module.exports = app;
+const PORT = process.env.PORT || 10000;
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🏥 Hospital Sentinela rodando na porta ${PORT}`);
+});
