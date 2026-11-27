@@ -1,410 +1,138 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administração | Sentinela Pediatria</title>
-
+    <title>Admin - Cadastro Simples</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/admin.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/menu.css">
 </head>
-
 <body>
 
-<div class="admin-layout">
+<div class="container">
+    <a href="index.html" style="text-decoration:none; color:cornflowerblue;
+    font-size:14px; display:inline-block; margin-bottom:12px;">
+        → Voltar para o login
+    </a>
 
-    <!-- MENU LATERAL -->
-    <aside class="admin-sidebar" id="adminSidebar">
+    <button type="button" class="btn-almoxarifado" 
+    onclick="window.location.href=
+    'almoxarifado.html'">Acessar Almoxarifado</button>
 
-        <div class="admin-logo">
-            <div class="admin-logo-icon">
-                <i class="fa-solid fa-heart-pulse"></i>
-            </div>
+    <h2>Cadastrar Usuário</h2>
 
-            <div class="admin-logo-text">
-                <h2>Sentinela</h2>
-                <span>PEDIATRIA</span>
-            </div>
-        </div>
 
-        <div class="admin-section-title">ADMINISTRAÇÃO</div>
 
-        <nav class="admin-nav">
+    <form id="formulario">
+        <input type="text" id="usuario"
+            placeholder="Nome do usuário (login)" required>
 
-            <a href="#inicio" class="admin-link active">
-                <i class="fa-solid fa-house"></i>
-                <span>Visão geral</span>
-            </a>
+        <input type="password" id="senha"
+            placeholder="Senha" required>
 
-            <a href="#cadastro" class="admin-link">
-                <i class="fa-solid fa-user-plus"></i>
-                <span>Cadastrar usuário</span>
-            </a>
+        <select id="tipo" required>
+            <option value="">Selecione o setor</option>
+            <option value="admin">Administrador</option>
+            <option value="triagem">Triagem</option>
+            <option value="medico">Médico</option>
+            <option value="enfermeiro">Enfermeiro</option>
+            <option value="atendimento">Atendimento</option>
+        </select>
 
-            <a href="#usuarios" class="admin-link">
-                <i class="fa-solid fa-users"></i>
-                <span>Usuários cadastrados</span>
-            </a>
+        <button type="submit">Cadastrar usuário</button>
+    </form>
 
-        </nav>
+    <hr style="margin:25px 0; border:none; border-top:1px solid #ccc;">
 
-        <div class="admin-sidebar-bottom">
+    <h2>Usuários Cadastrados</h2>
 
-            <a href="index.html" class="admin-link">
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Voltar ao login</span>
-            </a>
-
-            <div class="admin-profile">
-                <div class="admin-avatar">
-                    <i class="fa-solid fa-user-shield"></i>
-                </div>
-
-                <div class="admin-profile-info">
-                    <strong>Administrador</strong>
-                    <span>Painel administrativo</span>
-                </div>
-            </div>
-
-        </div>
-
-    </aside>
-
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="admin-main" id="inicio">
-
-        <header class="admin-header">
-
-            <div class="admin-header-left">
-
-                <button class="admin-toggle" id="adminToggle">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-                <div>
-                    <h1>Painel Administrativo</h1>
-                    <p>Gerenciamento de usuários do hospital</p>
-                </div>
-
-            </div>
-
-            <div class="admin-status">
-                <span></span>
-                Sistema ativo
-            </div>
-
-        </header>
-
-        <!-- BOAS-VINDAS -->
-        <section class="admin-welcome">
-
-            <div>
-                <span class="admin-welcome-label">SENTINELA PEDIATRIA</span>
-
-                <h2>Central de Administração</h2>
-
-                <p>
-                    Gerencie os usuários e os acessos dos profissionais
-                    do sistema hospitalar.
-                </p>
-            </div>
-
-            <i class="fa-solid fa-shield-halved"></i>
-
-        </section>
-
-        <!-- CADASTRO -->
-        <section class="admin-content-section" id="cadastro">
-
-            <div class="admin-section-header">
-                <div>
-                    <h2>
-                        <i class="fa-solid fa-user-plus"></i>
-                        Cadastrar Usuário
-                    </h2>
-
-                    <p>Adicione novos profissionais ao sistema.</p>
-                </div>
-            </div>
-
-            <div class="admin-card">
-
-                <form id="formUsuario">
-
-                    <div class="admin-form-grid">
-
-                        <div class="admin-field">
-                            <label for="usuario">Nome do usuário</label>
-
-                            <input
-                                type="text"
-                                id="usuario"
-                                placeholder="Digite o nome de usuário"
-                                autocomplete="username"
-                                required
-                            >
-                        </div>
-
-                        <div class="admin-field">
-                            <label for="senha">Senha</label>
-
-                            <input
-                                type="password"
-                                id="senha"
-                                placeholder="Digite a senha"
-                                autocomplete="new-password"
-                                required
-                            >
-                        </div>
-
-                        <div class="admin-field admin-field-full">
-                            <label for="tipo">Setor profissional</label>
-
-                            <select id="tipo" required>
-                                <option value="">Selecione o setor</option>
-                                <option value="atendimento">Atendimento</option>
-                                <option value="triagem">Triagem</option>
-                                <option value="medico">Médico</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <div class="admin-form-footer">
-
-                        <button type="submit" id="btnCadastrar">
-                            <i class="fa-solid fa-plus"></i>
-                            Cadastrar Usuário
-                        </button>
-
-                    </div>
-
-                </form>
-
-                <div id="mensagem" class="mensagem" role="status"></div>
-
-            </div>
-
-        </section>
-
-        <!-- LISTAGEM -->
-        <section class="admin-content-section" id="usuarios">
-
-            <div class="admin-section-header">
-
-                <div>
-                    <h2>
-                        <i class="fa-solid fa-users"></i>
-                        Usuários Cadastrados
-                    </h2>
-
-                    <p>Consulte os profissionais registrados no sistema.</p>
-                </div>
-
-                <button class="admin-refresh" onclick="carregarUsuarios()">
-                    <i class="fa-solid fa-rotate"></i>
-                    Atualizar
-                </button>
-
-            </div>
-
-            <div class="admin-card">
-
-                <div id="listaUsuarios">
-                    Carregando usuários...
-                </div>
-
-            </div>
-
-        </section>
-
-        <footer class="admin-footer">
-            Sentinela Pediatria © 2026 - Sistema de Gestão Hospitalar
-        </footer>
-
-    </main>
-
+    <div id="listaUsuarios"></div>
 </div>
 
 <script>
+    const formulario = document.getElementById("formulario");
 
-    // MENU LATERAL
-    const sidebar = document.getElementById("adminSidebar");
-    const toggle = document.getElementById("adminToggle");
+    // Cadastrar usuário
+    formulario.addEventListener("submit", async function(e) {
+        e.preventDefault();
 
-    toggle.addEventListener("click", function() {
-        sidebar.classList.toggle("collapsed");
-    });
-
-    // NAVEGAÇÃO DO MENU
-    document.querySelectorAll(".admin-nav .admin-link").forEach(link => {
-
-        link.addEventListener("click", function() {
-
-            document.querySelectorAll(".admin-nav .admin-link")
-                .forEach(item => item.classList.remove("active"));
-
-            this.classList.add("active");
-
-        });
-
-    });
-
-    // CADASTRO DE USUÁRIOS
-    const form = document.getElementById("formUsuario");
-    const campoUsuario = document.getElementById("usuario");
-    const campoSenha = document.getElementById("senha");
-    const campoTipo = document.getElementById("tipo");
-    const botaoCadastrar = document.getElementById("btnCadastrar");
-    const listaUsuarios = document.getElementById("listaUsuarios");
-    const mensagem = document.getElementById("mensagem");
-
-    const API_URL = "http://localhost:3000/usuarios";
-
-    form.addEventListener("submit", async function(event) {
-
-        event.preventDefault();
-
-        const usuario = campoUsuario.value.trim();
-        const senha = campoSenha.value;
-        const tipo = campoTipo.value;
+        const usuario = document.getElementById("usuario").value.trim();
+        const senha = document.getElementById("senha").value;
+        const tipo = document.getElementById("tipo").value;
 
         if (!usuario || !senha || !tipo) {
-            mensagem.textContent = "Preencha todos os campos.";
-            mensagem.className = "mensagem erro";
+            alert("Preencha todos os campos.");
             return;
         }
 
-        botaoCadastrar.disabled = true;
-        botaoCadastrar.textContent = "Cadastrando...";
-        mensagem.textContent = "";
-
         try {
-
-            const resposta = await fetch(API_URL, {
+            const res = await fetch("/usuarios", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    usuario: usuario,
-                    senha: senha,
-                    tipo: tipo
-                })
+                body: JSON.stringify({ usuario, senha, tipo })
             });
 
-            const dados = await resposta.json();
+            const data = await res.json();
 
-            if (!resposta.ok || dados.erro) {
-                throw new Error(
-                    dados.erro || "Não foi possível cadastrar o usuário."
-                );
+            if (!res.ok || data.erro) {
+                alert("Erro: " + (data.erro || data.mensagem || "Não foi possível cadastrar."));
+                return;
             }
 
-            mensagem.textContent = "Usuário cadastrado com sucesso!";
-            mensagem.className = "mensagem";
+            alert("Usuário cadastrado com sucesso!");
 
-            form.reset();
-
-            await carregarUsuarios();
+            formulario.reset();
+            carregarUsuarios();
 
         } catch (erro) {
-
-            mensagem.textContent = "Erro ao cadastrar: " + erro.message;
-            mensagem.className = "mensagem erro";
-
-            console.error("Erro no cadastro:", erro);
-
-        } finally {
-
-            botaoCadastrar.disabled = false;
-            botaoCadastrar.innerHTML =
-                '<i class="fa-solid fa-plus"></i> Cadastrar Usuário';
-
+            console.error("Erro ao cadastrar:", erro);
+            alert("Erro ao conectar com o servidor. Verifique se ele está funcionando.");
         }
-
     });
 
-    // CARREGAR USUÁRIOS
+    // Carregar e listar usuários cadastrados
     async function carregarUsuarios() {
-
-        listaUsuarios.textContent = "Carregando usuários...";
+        const div = document.getElementById("listaUsuarios");
 
         try {
+            const res = await fetch("/usuarios");
 
-            const resposta = await fetch(API_URL);
-
-            if (!resposta.ok) {
-                throw new Error("Erro HTTP " + resposta.status);
+            if (!res.ok) {
+                throw new Error("Erro ao buscar usuários.");
             }
 
-            const dados = await resposta.json();
+            const usuarios = await res.json();
 
-            const usuarios = Array.isArray(dados)
-                ? dados
-                : dados.usuarios;
+            div.innerHTML = "";
 
-            if (!Array.isArray(usuarios)) {
-                throw new Error(
-                    "O servidor não retornou uma lista de usuários."
-                );
-            }
-
-            listaUsuarios.innerHTML = "";
-
-            if (usuarios.length === 0) {
-
-                listaUsuarios.textContent = "Nenhum usuário cadastrado.";
+            if (!Array.isArray(usuarios) || usuarios.length === 0) {
+                div.textContent = "Nenhum usuário cadastrado.";
                 return;
-
             }
 
             usuarios.forEach(function(u) {
-
-                const card = document.createElement("div");
-                card.className = "admin-user-card";
-
-                const icon = document.createElement("div");
-                icon.className = "admin-user-icon";
-                icon.innerHTML = '<i class="fa-solid fa-user"></i>';
-
-                const info = document.createElement("div");
-                info.className = "admin-user-info";
-
-                const nome = document.createElement("strong");
-                nome.textContent = u.usuario;
-
-                const setor = document.createElement("span");
-                setor.textContent = "Setor: " + u.tipo;
-
-                info.appendChild(nome);
-                info.appendChild(setor);
-
-                card.appendChild(icon);
-                card.appendChild(info);
-
-                listaUsuarios.appendChild(card);
-
+                const item = document.createElement("p");
+                item.textContent = "Usuário: " + u.usuario + " | Tipo: " + u.tipo;
+                div.appendChild(item);
             });
 
         } catch (erro) {
-
-            listaUsuarios.textContent =
-                "Não foi possível carregar os usuários. Verifique o servidor.";
-
             console.error("Erro ao carregar usuários:", erro);
-
+            div.textContent = "Não foi possível carregar os usuários.";
         }
-
     }
 
-    // CARREGAR AO ABRIR A PÁGINA
+    // Mostrar os usuários ao abrir a página
     carregarUsuarios();
-
 </script>
+
+
+
+
+
+
 
 </body>
 </html>
